@@ -1,0 +1,8 @@
+<%# app/views/posts/_posts_list.html.erb %>
+<%# Expects local variables: posts (array), title (string) %>
+<section>
+  <h2 class="text-xl font-[var(--font-heading)] mb-4"><%= title %></h2>
+  <div class="post-list space-y-4"> <%# Adjust styling as needed %>
+      <%= render partial: "posts/post_item", collection: @recent_posts, as: :post %>
+  </div>
+</section>

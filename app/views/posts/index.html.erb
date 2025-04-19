@@ -1,0 +1,25 @@
+<%# app/views/posts/index.html.erb %>
+<% content_for :title, "Blog" %>
+
+<h1 class="text-3xl font-[var(--font-heading)] mb-8">Blog Archive</h1>
+
+<%# Loop through years %>
+<% @posts_by_year.sort.reverse.to_h.each do |year, posts_in_year| %>
+  <section class="mb-12">
+    <h2 class="text-2xl font-[var(--font-heading)] border-b border-[var(--color-border)] pb-2 mb-6"><%= year %></h2>
+    <div class="post-list space-y-6">
+      <%# Render the same partial used on the home page for consistency %>
+      <%= render partial: "posts/post_item", collection: posts_in_year, as: :post %>
+    </div>
+  </section>
+<% end %>
+
+<%# Pagination Nav - Adapting your Astro component's structure %>
+<% if @pagy.pages > 1 %>
+  <nav aria-label="Blog pagination" class="mt-10">
+    <ul class="pagination flex justify-center space-x-1"> <%# Adapt pagination classes %>
+      <%# Use Pagy's nav helper or build manually %>
+      <%== pagy_nav(@pagy) %>
+    </ul>
+  </nav>
+<% end %>

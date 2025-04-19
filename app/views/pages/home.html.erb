@@ -1,0 +1,37 @@
+<%# app/views/pages/home.html.erb %>
+<% content_for :title, "Home" %>
+
+<section class="mb-12 p-6 bg-white border border-[var(--color-border)] rounded text-center"> <%# Use your utility classes %>
+  <h1 class="text-2xl font-[var(--font-heading)] mb-2">Hello! I'm Tawanda!</h1>
+  <p class="text-[var(--color-text-secondary)] mb-4">
+    Short description about you and the blog's focus (performance engineering, distributed systems, Rust, Go).
+  </p>
+  <div class="flex justify-center space-x-4">
+    <a href="https://github.com/tmunongo" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)]">GitHub</a>
+    <a href="https://linkedin.com/in/tawabda-munongo" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)]">LinkedIn</a>
+    <a href="https://hachyderm.io/@ta1da" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)]">Mastodon</a>
+  </div>
+</section>
+
+<%# Render recent posts partial %>
+<%= render "posts/posts_list", posts: @recent_posts, title: "Latest Thoughts" %>
+
+<% if @series.any? %>
+  <section class="mt-12">
+    <h2 class="text-xl font-[var(--font-heading)] mb-4">Post Series</h2>
+    <%# Render series list partial - Create app/views/series/_series_list.html.erb %>
+    <%#= render "series/series_list", series: @series %>
+     <ul>
+        <% @series.each do |series_name| %>
+          <li><%= link_to series_name, "#" %></li> <%# Link to series page later %>
+        <% end %>
+     </ul>
+  </section>
+<% end %>
+
+<%# Render email subscription CTA partial later %>
+<%#= render "shared/cta_subscribe", class: "mt-16" %>
+
+<div class="text-center mt-8">
+  <%= link_to "View All Posts", blog_index_path, class: "button btn-outline-secondary" %>
+</div>

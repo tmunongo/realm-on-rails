@@ -1,0 +1,619 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+/* ---=== RESET ===--- */
+/* Basic reset for consistency */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    line-height: 1.5;
+    /* Default line height */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    border-radius: var(--border-radius-sm);
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    /* Inherit font styles */
+}
+
+/* ---=== CUSTOM PROPERTIES (VARIABLES) ===--- */
+:root {
+    /* Colors */
+    --color-base: #F0F0E8;
+    /* Slightly green off-white background */
+    --color-text-primary: #1A1A1A;
+    /* Near-black text */
+    --color-text-secondary: #888888;
+    /* Dimmer gray text */
+    --color-accent: #2AAA2A;
+    /* Muted CRT green for interaction */
+    --color-accent-bright: #00FF00;
+    /* Brighter green for highlights */
+    --color-border: #BDBDB0;
+    /* Border gray */
+    --color-code-bg: #222222;
+    /* Dark code background */
+    --color-code-text: #E0E0E0;
+    /* Light code text */
+    --color-button-shadow: #888888;
+    /* Shadow for default buttons */
+    --color-inline-code-bg: #D5D5CC;
+    /* Background for inline code */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+
+    /* Fonts */
+    --font-heading: 'Press Start 2P', system-ui, sans-serif;
+    --font-body: 'VT323', monospace;
+    --font-mono: 'VT323', monospace;
+
+    /* Spacing (Example scale - adjust as needed) */
+    --space-xs: 0.25rem;
+    /* 4px */
+    --space-sm: 0.5rem;
+    /* 8px */
+    --space-md: 1rem;
+    /* 16px */
+    --space-lg: 1.5rem;
+    /* 24px */
+    --space-xl: 2rem;
+    /* 32px */
+    --space-xxl: 3rem;
+    /* 48px */
+
+    /* Borders */
+    --border-radius-sm: 0.125rem;
+    /* Minimal rounding */
+    --border-width-thin: 1px;
+    --border-width-thick: 2px;
+
+    /* Layout */
+    --container-max-width: 48rem;
+    /* Approx max-w-4xl */
+}
+
+/* ---=== BASE STYLES ===--- */
+body {
+    background-color: var(--color-base);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    line-height: 1.8;
+    /* Adjusted for VT323 */
+
+    /* Dot matrix background */
+    background-image: radial-gradient(var(--color-border) 0.75px, transparent 0.75px);
+    background-size: 8px 8px;
+    /* Adjust spacing */
+
+    /* Optional: Add subtle scanlines (uncomment if desired) */
+    background-image: radial-gradient(var(--color-border) 0.75px, transparent 0.75px),
+                    repeating-linear-gradient(0deg, rgba(0,0,0,0.03), rgba(0,0,0,0.03) 1px, transparent 1px, transparent 3px);
+  background-size: 8px 8px, 100% 3px;
+}
+
+/* ---=== TYPOGRAPHY ===--- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+    margin-top: var(--space-lg);
+    text-transform: uppercase;
+    line-height: 1.2;
+    /* Headings often need tighter line-height */
+}
+
+/* Example sizes - adjust based on Press Start 2P appearance */
+h1 {
+    font-size: 1.5rem;
+}
+
+/* Approx text-xl */
+h2 {
+    font-size: 1.25rem;
+}
+
+/* Approx text-lg */
+h3 {
+    font-size: 1.1rem;
+}
+
+/* Approx text-base+ */
+h4 {
+    font-size: 1rem;
+}
+
+/* Approx text-base */
+h5 {
+    font-size: 0.9rem;
+}
+
+h6 {
+    font-size: 0.8rem;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    transition: color 0.15s ease-in-out, text-decoration-color 0.15s ease-in-out;
+}
+
+a:hover,
+a:focus {
+    color: var(--color-accent-bright);
+    text-decoration-color: var(--color-accent-bright);
+    text-decoration-style: solid;
+    outline: none;
+    /* Provide focus styles elsewhere if needed */
+}
+
+hr {
+    border: none;
+    border-top: var(--border-width-thin) dotted var(--color-border);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+
+ul,
+ol {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+    /* Indentation */
+}
+
+li {
+    margin-bottom: var(--space-sm);
+}
+
+blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-md);
+    border-left: 4px solid var(--color-accent);
+    color: var(--color-text-secondary);
+    font-style: italic;
+    /* Optional */
+}
+
+/* ---=== LAYOUT HELPERS ===--- */
+.main-container {
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+}
+
+/* Example Grid Helpers (Use if needed, or style components directly) */
+.grid {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Add more complex grid column spans if needed */
+.col-span-2 {
+    grid-column: span 2 / span 2;
+}
+
+.col-span-3 {
+    grid-column: span 3 / span 3;
+}
+
+/* Example Flex Helpers */
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.space-x-4>*+* {
+    margin-left: var(--space-md);
+}
+
+/* Simple horizontal spacing */
+.space-y-4>*+* {
+    margin-top: var(--space-md);
+}
+
+/* Simple vertical spacing */
+
+
+/* ---=== COMPONENTS ===--- */
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-lg);
+    /* Adjust padding */
+    font-family: var(--font-body);
+    /* Use body font for readability */
+    font-size: 0.9rem;
+    /* Slightly smaller */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-width: var(--border-width-thick);
+    border-style: solid;
+    border-color: var(--color-button-shadow);
+    border-radius: var(--border-radius-sm);
+    background-color: transparent;
+    color: var(--color-text-primary);
+    box-shadow: 2px 2px 0 0 var(--color-button-shadow);
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+    user-select: none;
+    /* Prevent text selection on click */
+}
+
+.button:hover {
+    /* Optional: Slight hover effect */
+    /* filter: brightness(1.1); */
+    text-decoration: none;
+    /* Remove underline from link styles */
+}
+
+.button:focus {
+    outline: var(--border-width-thick) dotted var(--color-accent);
+    outline-offset: 2px;
+    text-decoration: none;
+}
+
+.button:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.button-primary {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    /* Match border to bg */
+    color: var(--color-code-bg);
+    /* High contrast text */
+    box-shadow: 2px 2px 0 0 var(--color-accent);
+    /* Use accent for shadow */
+}
+
+.button-primary:hover {
+    background-color: var(--color-accent-bright);
+    border-color: var(--color-accent-bright);
+}
+
+.button-primary:focus {
+    outline-color: var(--color-accent-bright);
+}
+
+/* Active state inherits from .button */
+
+.button-secondary {
+    /* Uses default border/shadow colors from .button */
+    color: var(--color-text-primary);
+    background-color: transparent;
+}
+
+.button-secondary:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    /* Slight bg tint */
+}
+
+/* Active state inherits from .button */
+
+
+/* Cards */
+.card {
+    background-color: transparent;
+    /* Match body bg or use var(--color-base) */
+    padding: var(--space-md);
+    border: var(--border-width-thick) solid var(--color-text-secondary);
+    /* Use a darker border */
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--space-md);
+    /* Spacing between cards */
+}
+
+.card h1,
+.card h2,
+.card h3,
+.card h4 {
+    margin-top: 0;
+    /* Remove top margin for headings inside cards */
+}
+
+
+/* Code Blocks */
+.code-block {
+    background-color: var(--color-code-bg);
+    color: var(--color-code-text);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    padding: var(--space-md);
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    overflow-x: auto;
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+}
+
+.code-block code {
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+    border-radius: 0;
+}
+
+code:not(.code-block *) {
+    color: var(--color-text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: var(--space-md) var(--space-md);
+    border-radius: var(--border-radius-sm);
+    vertical-align: baseline;
+}
+
+
+/* Breadcrumbs */
+.breadcrumbs {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    /* text-sm */
+    margin-bottom: var(--space-md);
+}
+
+.breadcrumbs ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.breadcrumbs li {
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+    content: '>>';
+    /* Retro separator */
+    display: inline-block;
+    /* Needed for margin */
+    margin-left: var(--space-sm);
+    margin-right: var(--space-sm);
+    color: var(--color-text-secondary);
+    opacity: 0.75;
+    /* Prevent selection of separator */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.breadcrumbs a {
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus {
+    color: var(--color-text-primary);
+    text-decoration-style: solid;
+}
+
+.breadcrumbs li[aria-current="page"] {
+    /* Style for the current page */
+    color: var(--color-text-primary);
+    font-weight: bold;
+    /* Or remove if VT323 bold is weird */
+}
+
+/* Forms (Basic Styling) */
+input,
+textarea,
+select {
+    display: block;
+    /* Make inputs block level by default */
+    width: 100%;
+    /* Make inputs take full width */
+    padding: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-md);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-base);
+    /* Match body bg */
+    border: var(--border-width-thick) solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    transition: border-color 0.15s ease-in-out;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px var(--color-accent-bright);
+    /* Focus ring */
+}
+
+/* Spaces */
+.space-sm {
+    margin-bottom: var(--space-sm);
+}
+
+.space-md {
+    margin-bottom: var(--space-md);
+}
+
+.space-lg {
+    margin-bottom: var(--space-lg);
+}
+
+.space-xl {
+    margin-bottom: var(--space-xl);
+}
+
+/* Padding */
+.p-sm {
+    padding: var(--space-sm);
+}
+
+.p-md {
+    padding: var(--space-md);
+}
+
+.p-lg {
+    padding: var(--space-lg);
+}
+
+.p-xl {
+    padding: var(--space-xl);
+}
+
+/* text position */
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* ---=== RESPONSIVE STYLES ===--- */
+
+/* Example: Increase base font size on larger screens */
+@media (min-width: 768px) {
+
+    /* Approx md breakpoint */
+    :root {
+        /* font-size: 17px; Optional: Scale base font size */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Add specific grid adjustments if needed */
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .md\:col-span-2 {
+        grid-column: span 2 / span 2;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    /* Approx lg breakpoint */
+    /* Add styles for larger screens, e.g., sidebar layouts */
+    .lg\:w-3\/4 {
+        width: 75%;
+    }
+
+    .lg\:w-1\/4 {
+        width: 25%;
+    }
+
+    .lg\:flex-row {
+        flex-direction: row;
+    }
+
+    .lg\:sticky {
+        position: sticky;
+        top: var(--space-xl);
+        align-self: flex-start;
+    }
+
+    /* Basic sticky */
+    .lg\:order-1 {
+        order: 1;
+    }
+
+    .lg\:order-2 {
+        order: 2;
+    }
+
+    .lg\:gap-8 {
+        gap: var(--space-xxl);
+    }
+
+    /* Larger gap */
+}
