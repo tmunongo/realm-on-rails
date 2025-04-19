@@ -1,7 +1,7 @@
 # app/controllers/posts_controller.rb
 class PostsController < ApplicationController
   before_action :load_all_posts, only: [:index]
-  POSTS_PER_PAGE = 10
+  POSTS_PER_PAGE = 5
 
   def index
     all_posts = PostLoaderService.load_all

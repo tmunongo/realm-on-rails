@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Tawanda Munongo" %> | Tawanda Munongo</title>    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title><%= content_for?(:title) ? yield(:title) : "Tawanda Munongo" %> | Tawanda Munongo</title>    
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
@@ -20,9 +21,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
 
+    <script
+        defer
+        data-domain="tawandamunongo.dev"
+        src="https://analytics.tawandamunongo.dev/js/script.js"
+      ></script>
+
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+     <%= javascript_include_tag "prism" %>
   </head>
 
   <body class="bg-[var(--color-base)] text-[var(--color-text-primary)] font-[var(--font-body)]" style="line-height: 1.8;"> <%# Apply base styles directly or via CSS %>
