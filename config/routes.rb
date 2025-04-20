@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "feeds/rss"
   get "posts/index"
   get "posts/show"
   get "pages/home"
@@ -18,13 +19,15 @@ Rails.application.routes.draw do
 
   get "about" => "pages#about"
 
-  # Posts index (all posts)
-  # get "posts" => "posts#index"
   get "blog(/:page)", to: "posts#index", as: :blog_index, page: /\d+/
 
   get "posts/:year/:month/:slug" => "posts#show", constraints: {
     year: /\d{4}/, # Ensure year is 4 digits
     month: /\d{2}/ # Ensure month is 2 digits
-  }, as: :post # Helper name: post_path(year: '2025', month: '04', slug: 'my-slug')
+  }, as: :post
 
+  get "/feed", to: "feeds#rss", defaults: { format: "xml" }, as: :rss_feed
+
+  match "/404", to: "errors#not_found", via: :all
+  match "*unmatched", to: "errors#not_found", via: :all
 end

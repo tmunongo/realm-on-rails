@@ -2,14 +2,15 @@
 <% content_for :title, @post.title %>
 <% content_for :description, @post.description %>
 
-<div class="flex flex-col lg:flex-row lg:gap-8">
-
+  <div class="mb-4 lg:mb-0">
+      <%= link_to "← Back to all posts", blog_index_path, class: "text-[var(--color-text-secondary)] hover:text-[var(--color-accent)]" %>
+    </div>
+  <div class="flex flex-col lg:flex-row lg:gap-8">
   <%# Sidebar %>
-  <aside class="lg:w-1/4 order-1 mb-8 lg:mb-0 lg:sticky lg:top-8 self-start"> <%# Add sticky positioning %>
-    <h3 class="toc-heading text-lg font-semibold mb-3"> <%# Style .toc-heading %>
+  <aside class="lg:w-1/4 order-1 mb-8 lg:mb-0 lg:sticky lg:top-8 self-start"> 
+    <h3 class="toc-heading text-lg font-semibold mb-3">
       On this page
     </h3>
-    <%# Placeholder for Table of Contents - Needs JS/Ruby logic to parse @post.content_html %>
     <nav class="toc-container text-sm" aria-label="Table of contents">
        <p class="toc-empty text-[var(--color-text-secondary)]">Table of Contents unavailable.</p>
       <%# <ol class="toc-list space-y-1"> %>
@@ -29,9 +30,8 @@
 
     <%# Post Header %>
     <header class="post-header mb-8 border-b border-[var(--color-border)] pb-4">
-      <h1 class="text-3xl md:text-4xl font-[var(--font-heading)] mb-3 !leading-tight"><%= @post.title %></h1> <%# Ensure prose doesn't override too much %>
+      <h1 class="text-3xl md:text-4xl font-[var(--font-heading)] mb-3 !leading-tight"><%= @post.title %></h1>
 
-      <%# Post Metadata Partial (Mimicking PostMetadata.astro) %>
       <div class="post-metadata text-sm text-[var(--color-text-secondary)] space-x-2 flex flex-wrap items-center gap-x-3 gap-y-1">
         <span class="metadata-item"><%= @post.publish_date.strftime("%b %d, %Y") %></span>
         <% if @post.read_time_text %>
@@ -40,7 +40,6 @@
         <% end %>
         <%# Add view count here later %>
 
-        <%# Tags (Mimicking TagPill.astro) %>
         <% if @post.tags.present? %>
           <span class="separator text-[var(--color-border)] hidden md:inline">::</span>
           <div class="tags-container inline-flex flex-wrap gap-1 mt-1 md:mt-0">
@@ -53,13 +52,13 @@
        <%# Series %>
         <% if @post.series.present? %>
            <div class="mt-2 text-sm text-[var(--color-text-secondary)]">
-            Part of the series: <%= link_to @post.series, "#", class: "hover:text-[var(--color-accent)] underline" %> <%# Link to series page later %>
+            Part of the series: <%= link_to @post.series, "#", class: "hover:text-[var(--color-accent)] underline" %>
           </div>
         <% end %>
     </header>
 
     <%# Post Content %>
-    <div class="post-body"> <%# Use post-body if prose isn't enough %>
+    <div class="post-body">
        <%= @post.content_html.html_safe %>
     </div>
   </article>

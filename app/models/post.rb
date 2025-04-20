@@ -1,4 +1,3 @@
-# app/models/post.rb
 class Post
   include ActiveModel::Model # Provides initializers, attributes, etc.
   include ActiveModel::Attributes
