@@ -115,7 +115,13 @@ body {
     /* Optional: Add subtle scanlines (uncomment if desired) */
     background-image: radial-gradient(var(--color-border) 0.75px, transparent 0.75px),
                     repeating-linear-gradient(0deg, rgba(0,0,0,0.03), rgba(0,0,0,0.03) 1px, transparent 1px, transparent 3px);
-  background-size: 8px 8px, 100% 3px;
+    background-size: 8px 8px, 100% 3px;
+
+    min-height: 100vh;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* ---=== TYPOGRAPHY ===--- */
@@ -412,10 +418,18 @@ blockquote {
 code:not(.code-block *) {
     color: var(--color-text-primary);
     font-family: var(--font-mono);
-    font-size: 0.8rem;
-    padding: var(--space-md) var(--space-md);
+    font-size: 1.0rem;
+    padding: var(--space-sm) var(--space-sm);
     border-radius: var(--border-radius-sm);
     vertical-align: baseline;
+}
+
+h1 {
+    code:not(.code-block *) {
+        font-size: 1.8rem;
+        padding: 0;
+        /* Adjust size for headings */
+    }
 }
 
 
@@ -550,6 +564,26 @@ select:focus {
 
 .text-right {
     text-align: right;
+}
+
+u {
+    text-decoration: none;
+    font-style: italic;
+}
+
+pre {
+    background-color: var(--color-code-bg);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    padding: var(--space-md);
+    border-radius: var(--border-radius-sm);
+    overflow-x: auto;
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+
+    code {
+        color: var(--color-code-text) !important;
+    }
 }
 
 /* ---=== RESPONSIVE STYLES ===--- */
