@@ -1,10 +1,8 @@
-# app/controllers/posts_controller.rb
-class PostsController < ApplicationController
-  before_action :load_all_posts, only: [ :index ]
-  POSTS_PER_PAGE = 5
+class MusingsController < ApplicationController
+    POSTS_PER_PAGE = 5
 
   def index
-    @postLoaderService = PostLoaderService.new("posts")
+    @postLoaderService = PostLoaderService.new("musings")
     all_posts = @postLoaderService.load_all
     @pagy, @posts = pagy_array(all_posts, items: POSTS_PER_PAGE)
     @posts_by_year = @posts.group_by { |post| post.publish_date.year }
@@ -14,7 +12,7 @@ class PostsController < ApplicationController
     year = params[:year]
     month = params[:month]
     slug = params[:slug]
-    @postLoaderService = PostLoaderService.new
+    @postLoaderService = PostLoaderService.new("musings")
     @post = @postLoaderService.find(year, month, slug)
 
     if @post.nil?
@@ -26,17 +24,4 @@ class PostsController < ApplicationController
     # Basic view tracking placeholder (implement properly later)
     # track_view(@post, request.remote_ip)
   end
-
-  private
-
-  def load_all_posts
-    @postLoaderService = PostLoaderService.new
-    @posts = @postLoaderService.load_all
-  end
-
-  # Placeholder for view tracking
-  # def track_view(post, ip_address)
-  #   # Logic to increment view count, likely storing in a DB or cache
-  #   # associated with post slug/path and potentially IP for uniqueness within a timeframe
-  # end
 end

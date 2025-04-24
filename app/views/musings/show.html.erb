@@ -1,0 +1,66 @@
+<%# app/views/posts/show.html.erb %>
+<% content_for :title, @post.title %>
+<% content_for :description, @post.description %>
+
+  <div class="mb-4 lg:mb-0">
+      <%= link_to "← Back to all posts", musings_index_path, class: "text-[var(--color-text-secondary)] hover:text-[var(--color-accent)]" %>
+    </div>
+  <div class="flex flex-col lg:flex-row lg:gap-8">
+  <%# Sidebar %>
+  <aside class="lg:w-1/4 order-1 mb-8 lg:mb-0 lg:sticky lg:top-8 self-start"> 
+    <h3 class="toc-heading text-lg font-semibold mb-3">
+      On this page
+    </h3>
+    <nav class="toc-container text-sm" aria-label="Table of contents">
+       <p class="toc-empty text-[var(--color-text-secondary)]">Table of Contents unavailable.</p>
+      <%# <ol class="toc-list space-y-1"> %>
+        <%# JS would populate this, or a Ruby helper parsing the HTML %>
+        <%# <li class="toc-item toc-item-depth-2"><a href="#heading-slug">Section Heading</a></li> %>
+      <%# </ol> %>
+    </nav>
+    <%# Optional: Related posts etc. %>
+  </aside>
+
+  <%# Main Article Content %>
+  <article class="lg:w-3/4 order-2 post-content prose lg:prose-xl max-w-none bg-white p-6 md:p-8 rounded border border-[var(--color-border)]">
+    <%# Cover Image %>
+    <% if @post.cover_image_src %>
+      <%= image_tag @post.cover_image_src, alt: @post.cover_image_alt, class: "mb-6 rounded max-w-full h-auto" %>
+    <% end %>
+
+    <%# Post Header %>
+    <header class="post-header mb-8 border-b border-[var(--color-border)] pb-4">
+      <h1 class="text-3xl md:text-4xl font-[var(--font-heading)] mb-3 !leading-tight"><%= @post.title %></h1>
+
+      <div class="post-metadata text-sm text-[var(--color-text-secondary)] space-x-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+        <span class="metadata-item"><%= @post.publish_date.strftime("%b %d, %Y") %></span>
+        <% if @post.read_time_text %>
+          <span class="separator text-[var(--color-border)]">::</span>
+          <span class="metadata-item"><%= @post.read_time_text %></span>
+        <% end %>
+        <%# Add view count here later %>
+
+        <% if @post.tags.present? %>
+          <span class="separator text-[var(--color-border)] hidden md:inline">::</span>
+          <div class="tags-container inline-flex flex-wrap gap-1 mt-1 md:mt-0">
+            <% @post.tags.split(',').map(&:strip).each do |tag| %>
+              <%= link_to "##{tag}", "#", class: "tag-pill text-xs bg-[var(--color-inline-code-bg)] rounded px-2 py-0.5 hover:text-[var(--color-accent)]" %> <%# Link to tag page later %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+       <%# Series %>
+        <% if @post.series.present? %>
+           <div class="mt-2 text-sm text-[var(--color-text-secondary)]">
+            Part of the series: <%= link_to @post.series, "#", class: "hover:text-[var(--color-accent)] underline" %>
+          </div>
+        <% end %>
+    </header>
+
+    <%# Post Content %>
+    <div class="post-body">
+       <%= @post.content_html.html_safe %>
+    </div>
+  </article>
+
+</div>

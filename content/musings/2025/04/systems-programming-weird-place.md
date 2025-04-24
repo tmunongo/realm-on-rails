@@ -1,5 +1,13 @@
 ---
-
+title: Systems Programming Languages are in a Weird Place Right Now
+author: Tawanda Munongo
+bio: I spend most of my days learning about and building software systems. When I inevitably learn something new, I come here and write about it. Once in a while, I might throw in some fiction and philosophy.
+linkedin: https://linkedin.com/in/tawanda-munongo
+github: https://github.com/tmunongo
+cover: https://res.cloudinary.com/ta1da-cloud/image/upload/v1734763339/realm/covers/library_mfqmlr.jpg
+tags: ["Programming", "Rust", "Zig", "Go", "C++"]
+description: Some thoughts about my struggle picking and sticking to a system's programming language
+publishDate: 2025-04-05
 ---
 
 So, systems programming is in a weird place right now.

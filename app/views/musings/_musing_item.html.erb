@@ -1,0 +1,19 @@
+<%# app/views/posts/_post_item.html.erb %>
+<%# Expects local variable: post %>
+<article class="card bg-white border border-[var(--color-border)] rounded p-4"> <%# Adapt card styling %>
+  <h3 class="text-lg font-semibold mb-1">
+    <%= link_to post.title, musing_path(year: post.publish_date.year, month: post.publish_date.strftime('%m'), slug: post.slug), class: "hover:text-[var(--color-accent)]" %>
+  </h3>
+  <p class="text-sm text-[var(--color-text-secondary)] mb-2">
+    <%= post.publish_date.strftime("%B %d, %Y") %>
+    <% if post.read_time_text %>
+      <span class="mx-1">&middot;</span>
+      <%= post.read_time_text %>
+    <% end %>
+  </p>
+  <% if post.description %>
+    <p class="text-base mb-3"><%= post.description %></p>
+  <% end %>
+  <%= link_to "Read More →", musing_path(year: post.publish_date.year, month: post.publish_date.strftime('%m'), slug: post.slug), class: "text-[var(--color-accent)] hover:underline" %>
+  <%# Add tags here if desired for the list view %>
+</article>

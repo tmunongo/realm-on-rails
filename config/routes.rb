@@ -20,6 +20,12 @@ Rails.application.routes.draw do
   get "about" => "pages#about"
 
   get "blog(/:page)", to: "posts#index", as: :blog_index, page: /\d+/
+  get "musings(/:page)", to: "musings#index", as: :musings_index, page: /\d+/
+
+  get "musings/:year/:month/:slug" => "musings#show", constraints: {
+    year: /\d{4}/, # Ensure year is 4 digits
+    month: /\d{2}/ # Ensure month is 2 digits
+  }, as: :musing
 
   get "posts/:year/:month/:slug" => "posts#show", constraints: {
     year: /\d{4}/, # Ensure year is 4 digits

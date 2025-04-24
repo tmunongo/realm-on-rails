@@ -14,18 +14,12 @@ xml.rss version: "2.0", "xmlns:atom": "http://www.w3.org/2005/Atom" do
     xml.title @channel_title || "Tawanda's Realm"
     xml.link @channel_link || root_url
     xml.description @channel_description || "A software engineer trying to find the place where technology, philosophy, and story-telling meet."
-    xml.language @channel_language || "en-us"    # Provide default or set in controller
+    xml.language @channel_language || "en-us"
 
-    # --- Atom Self Link (Correct) ---
-
-    xml.atom :link, href: rss_feed_url(format: :xml), rel: "self", type: "application/rss+xml"
+    xml.atom :link, href: rss_feed_url(format: :xml), rel: "self", type: "application/rss+xml", target: "_self"
 
     xml.lastBuildDate (@posts.first&.publish_date&.rfc822) || Time.now.rfc822
 
-    # --- Optional: Channel Publication Date ---
-    # xml.pubDate @posts.last&.publish_date&.rfc822 # Date of the oldest post if needed
-
-    # --- Iterate through Posts (Ensure @posts is loaded in FeedsController) ---
     @posts.each do |post|
       xml.item do
         xml.title post.title
@@ -40,10 +34,8 @@ xml.rss version: "2.0", "xmlns:atom": "http://www.w3.org/2005/Atom" do
           # --- Corrected GUID ---
           xml.guid item_url, isPermaLink: "true"
 
-          # --- Added Item Publication Date ---
           xml.pubDate post.publish_date.rfc822
         else
-          # Handle cases where publish_date might be missing, maybe skip the item or log warning
           # xml.guid "Error: Missing publish date for post with slug #{post.slug}", isPermaLink: "false"
           Rails.logger.warn "Skipping post '#{post.title || post.slug}' in RSS feed due to missing publish_date."
           next
