@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     @series = @all_posts.map(&:series).compact.uniq
   end
 
-  def about
-  end
+  def about; end
+
+  def recommended_reading; end
 end

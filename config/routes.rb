@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get "about" => "pages#about"
 
+  get "recommended-reading" => "pages#recommended_reading"
+
   get "blog(/:page)", to: "posts#index", as: :blog_index, page: /\d+/
   get "musings(/:page)", to: "musings#index", as: :musings_index, page: /\d+/
 
