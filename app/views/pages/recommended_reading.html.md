@@ -1,8 +1,8 @@
-# My Recommended Reading List (Updated > 2025)
+# My Recommended Reading List [Updated: May 2025]
 
-Recently, I decided to embark on a journey to re-read some of my all time favourite books. I read a lot, and even though I start every year with a reading list, I sometimes end up reading other books that are not on the list. It becomes harder to revisit them if I don't have any record of ever reading them.
+Recently, I decided to re-read some of my all time favourite books. I read a lot, and even though I start every year with a reading list, I sometimes end up reading other books that are not on that list. It becomes harder to revisit them if I don't have any record of ever reading them.
 
-This list is just as much for me, as it is for anyone who stumbles upon it.
+This list is just as much for me, as it is for anyone who stumbles upon it, to keep track of all the books that I think are worth (re)reading.
 
 ## General
 
