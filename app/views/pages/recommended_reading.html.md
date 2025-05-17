@@ -82,6 +82,9 @@ I'm a big fan of sci-fi, especially space operas and cyberpunk fiction. Most of 
 - 1984 by George Orwell
 - Neuromancer by William Gibson
   - Cyberpunk is my favourite genre of fiction, so it only makes sense to include the book that _kind of_ started it all.
+- The Left Hand of Darkness by Ursula K. le Guin
+  - Equal parts beautiful and harsh critique of _nationalism_. It makes it onto this list because of a single quote:
+    - _"What is love of one's country; is it hate of one's uncountry? Then it's not a good thing. Is it simply self-love? That's a good thing, but one mustn't make a virtue of it, or a profession"_ (_[full_quote](https://www.goodreads.com/quotes/177684-how-does-one-hate-a-country-or-love-one-tibe)_)
 
 To keep this reasonable, each section will have a maximum of 10 books. I have cheated a bit in the _Fiction_ section because some of these are series, but I can't just recommend, for example, _Foundation and Empire_ without including what came before and what comes after.
 
