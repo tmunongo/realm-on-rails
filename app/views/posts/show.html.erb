@@ -1,4 +1,27 @@
 <%# app/views/posts/show.html.erb %>
+<% content_for :head do %>
+  <meta
+    name="description"
+    content="<%= @post.description %>"
+  />
+  <meta name="author" property="og:author" content="Tawanda Munongo" />
+  <meta name="image" property="og:image" content="<%= @post.cover %>" />
+  <meta property="og:image:height" content="1200" />
+  <meta property="og:image:width" content="630" />
+   <!-- Twitter SEO Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="<%= @post.title %>"
+  />
+  <meta
+    name="twitter:description"
+    content="<%= @post.description %>"
+  />
+  <meta name="twitter:site" content="@edtha3rd" />
+  <meta name="twitter:image" content="<%= @post.cover %>" />
+  <meta name="twitter:creator" content="@edtha3rd" />
+<% end %>
 <% content_for :title, @post.title %>
 <% content_for :description, @post.description %>
 

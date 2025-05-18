@@ -10,6 +10,7 @@ class Post
   attribute :series, :string
   attribute :cover_image_src, :string
   attribute :cover_image_alt, :string
+  attribute :cover, :string
   attribute :early_access, :boolean, default: false
 
   # File-based attributes

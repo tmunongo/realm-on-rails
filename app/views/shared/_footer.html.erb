@@ -6,10 +6,17 @@
     class="container mx-auto max-w-4xl px-4 py-6 text-center text-muted-foreground text-sm"
   >
     <p>
-      All opinions are my own and <strong>do not</strong> reflect those of my employers - past,
-      present, and future.
+      All opinions are my own and <strong>do not</strong> reflect those of my employers - past or
+      present.
     </p>
     © <%= Time.current.year %> Tawanda Munongo. All rights reserved.
-    <% # Links to Github/LinkedIn etc %>
+    <div class="flex justify-center mt-4 space-x-4">
+      <%= link_to "GitHub", "https://github.com/tmunongo", target: "_blank", rel: "noopener noreferrer" %>
+      <span> | </span>
+      <%= link_to "LinkedIn", "https://www.linkedin.com/in/tawanda-munongo/", target: "_blank", rel: "noopener noreferrer" %>
+      <span> | </span>
+      <%= link_to "Mastodon", "https://hachyderm.io/@ta1da", target: "_blank", rel: "noopener noreferrer" %>
+      <span> | </span>
+      <%= link_to "RSS", "/feed", target: "_blank", rel: "noopener noreferrer" %>
   </div>
 </footer>
