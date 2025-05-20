@@ -104,7 +104,7 @@ At this point, I find myself wondering who exactly this is even supposed to bene
 
 In both cases, I reckon, the biggest winners will be those who refuse to become overly reliant on AI to the point of becoming mentally atrophied. Think of it similarly to [Pascal's Wager](https://en.wikipedia.org/wiki/Pascal%27s_wager):
 
-![[https://res.cloudinary.com/ta1da-cloud/image/upload/v1747755445/realm/essays/Pasted_image_20250507093605_qrrwzg.png]]
+![AI Wager](https://res.cloudinary.com/ta1da-cloud/image/upload/v1747755445/realm/essays/Pasted_image_20250507093605_qrrwzg.png)
 
 Clearly, you can never go wrong with acquiring skills. There will always be room for domains where AI is undesirable, or just people who still want something built/done by a human. Coffee machines didn't put baristas out of work, and calculators didn't eliminate the need to learn basic arithmetic, etc.
 
